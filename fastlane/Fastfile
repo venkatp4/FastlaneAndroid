@@ -33,11 +33,10 @@ platform :android do
 
   desc "Setup APK file location **************************************************"
     lane :binary_path do
-    copy_artifacts(
-    artifacts: ['*/build/outputs/apk/**/*.apk'],
-    target_path: outputDirectory
-    )
+    copy_artifacts(artifacts: ['*/build/outputs/apk/**/*.apk'], target_path: outputDirectory)
+    echo(message:"APK copied successfully================================================================= #{outputDirectory}")
   end
+
   desc "Build **************************************************"
     lane :build do
       increment_version
