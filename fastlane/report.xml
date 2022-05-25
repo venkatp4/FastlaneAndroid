@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000857">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: Switch to android increment_version lane" time="0.000217">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: increment_version_code" time="0.001557">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: Switch to android cleanAndbuild lane" time="0.000189">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: clean" time="1.190371">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5:  assembleDebug" time="4.158249">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: Switch to android binary_path lane" time="0.000242">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: copy_artifacts" time="0.004263">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

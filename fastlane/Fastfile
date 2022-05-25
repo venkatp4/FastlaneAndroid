@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  
+  outputDirectory = "./fastlane/builds/debug.apk"
+
+  desc "clean and Build **************************************************"
+  lane :cleanAndbuild do
+    gradle(task: "clean")
+    gradle(task: " assembleDebug")
+
+  end
+
+  desc "Increment version code **************************************************"
+  lane :increment_version do
+    increment_version_code(gradle_file_path: "./app/build.gradle")
+  end
+
+  desc "Setup APK file location **************************************************"
+    lane :binary_path do
+    copy_artifacts(
+    artifacts: ['*/build/outputs/apk/**/*.apk'],
+    target_path: outputDirectory
+    )
+  end
+  desc "Build **************************************************"
+    lane :build do
+      increment_version
+      cleanAndbuild
+      binary_path
+end 
+
+end
