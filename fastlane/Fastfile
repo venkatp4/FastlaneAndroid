@@ -17,7 +17,7 @@ default_platform(:android)
 
 platform :android do
   
-  outputDirectory = "./fastlane/builds/debug.apk"
+  outputDirectory = "./fastlane/builds/"
 
   desc "clean and Build **************************************************"
   lane :cleanAndbuild do
@@ -37,11 +37,17 @@ platform :android do
     echo(message:"APK copied successfully================================================================= #{outputDirectory}")
   end
 
+  desc "Sharing Build"
+  lane :uploadToDiawi do |values|
+    diawi(token: values[:token], file: values[:file])
+  end
+
   desc "Build **************************************************"
     lane :build do
       increment_version
       cleanAndbuild
       binary_path
+      uploadToDiawi token: "yyUqLNEoWKnkeJeGmSC45GH2Gkc7U9sLV3Vv7ATiLI", file: "./fastlane/builds/app-debug.apk"
 end 
 
 end
